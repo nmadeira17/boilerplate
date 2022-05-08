@@ -1,0 +1,20 @@
+{
+  "name": "<name>",
+  "version": "1.0.0",
+  "description": "<description>",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<path>.git"
+  },
+  "author": "<author>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmadeira17/<url>/issues"
+  },
+  "homepage": "https://github.com/nmadeira17/<path>#readme"
+}
