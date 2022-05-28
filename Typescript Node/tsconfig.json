@@ -1,0 +1,22 @@
+{
+    "`$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Node 16",
+  
+    "compilerOptions": {
+      "lib": ["es6"],
+      "module": "commonjs",
+      "target": "es5",
+  
+      "outDir": "dist",
+  
+      "strict": true,
+      "noImplicitAny": true,
+      "noImplicitOverride": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "sourceMap": true,
+      "rootDir": "./src",
+    },
+    "include": ["src/**/*"]
+  }
