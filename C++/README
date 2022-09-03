@@ -1,0 +1,10 @@
+# Boilerplate for C++ using Clang/LLVM
+
+## Requirements
+ - Install clang/llvm: `sudo apt install clang lldb lld build-essential`
+    - lldb: LLVM debugger
+    - lld: LLVM linker
+    - build-essential: misc build tools like C++ standard library implementation, make, etc.
+
+ - Ensure clang installed correctly: `clang++ --version`
+
