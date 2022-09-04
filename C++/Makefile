@@ -1,15 +1,14 @@
-CXX			= clang++
-LANG		= -std=c++17
-PICKY		= -Wall
+CXX		= clang++
+LANG	= -std=c++17
 
-ARCH		:= $(shell arch) # Ex: x86_64
-UNAME_S     := $(shell uname -s) # Ex: Linux
+# `make mode=ship`
+ifeq ($(mode), ship)
+	OPTS = -Ofast $(NATIVE) -DNDEBUG -Wall
+else
+	OPTS = -g -O0 -DDEBUG
+endif
 
-OPTS		= -Ofast $(NATIVE) -DNDEBUG
-
-REPORTING   = -Rpass=.*
-
-CXXFLAGS	= $(OPTS) $(LANG) $(PICKY) $(INCLUDES) $(DEFS) $(PTHREAD)
+CXXFLAGS	= $(OPTS) $(LANG)
 
 SOURCES		= main.cpp
 
@@ -18,7 +17,7 @@ OBJECTS		= $(SOURCES:.cpp=.o)
 TARGETS		= $(SOURCES:.cpp=.exe)
 PCHS		= $(HEADERS:=.gch)
 
-.PHONY: defreport optreport clean depend all
+.PHONY: clean depend all
 
 all		: $(TARGETS)
 
@@ -32,7 +31,7 @@ all		: $(TARGETS)
 		  $(CXX) -S -fverbose-asm $(CXXFLAGS) $<
 
 clean	:
-		  /bin/rm -f $(TARGETS) $(OBJECTS) $(PCHS) a.out *~
+		  /bin/rm -f $(TARGETS) $(OBJECTS) $(PCHS) *~
 
 depend: $(ALL_SRC)
 	@ $(CXX) -MM $(LANG) $(INCLUDES) $(SOURCES) > makedep

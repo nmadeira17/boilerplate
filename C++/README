@@ -8,3 +8,12 @@
 
  - Ensure clang installed correctly: `clang++ --version`
 
+ - Get lldb to work with Visual Studio Code. See this [link](https://github.com/microsoft/vscode-cpptools/issues/5415) for more details.
+   - `sudo apt install llvm-10-dev liblldb-10-dev cmake` 
+   - `sudo ln -s /usr/bin/lldb-server-10 /usr/bin/lldb-server-10.0.0`
+   - Build lldb-mi executable from source:
+      - `git clone https://github.com/lldb-tools/lldb-mi.git`
+      - `cd lldb-mi`
+      - `cmake .`
+      - `cmake --build .`
+      - `sudo cp src/lldb-mi /usr/bin/`
